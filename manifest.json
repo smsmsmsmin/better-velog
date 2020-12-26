@@ -1,0 +1,13 @@
+{
+  "manifest_version": 1,
+  "name": "better-velog",
+  "description": "벨로그 메인 화면 필터링을 위한 익스텐션입니다.",
+  "version": "2.0.0",
+  "content_scripts": [
+    {
+      "matches": ["*://velog.io/"],
+      "js": ["background.js"]
+    }
+  ],
+  "permissions": ["http://*/*", "https://*/*", "storage"]
+}
