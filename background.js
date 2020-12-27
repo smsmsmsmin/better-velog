@@ -3,19 +3,11 @@ function getRoot(element) {
 }
 
 function getChildren(element) {
-    return element.children;
-}
-
-function getContentItem(content) {
     let contentIndex = 0;
-    if (content.length === 3) {
+    if (element.children.length === 3) {
         contentIndex = 1;
     }
-    return content[contentIndex];
-}
-
-function getChildrenArray(contents) {
-    return Array.from(contents[0].children);
+    return Array.from(element.children[contentIndex].children[0].children);
 }
 
 function removeIgnoredKeyword(keywords) {
@@ -33,10 +25,7 @@ function removeIgnoredKeyword(keywords) {
 setInterval(() => {
     if (window.location.pathname === "/") {
         getRoot(document.querySelector("main"))
-            .map(getChildren)
-            .map(getContentItem)
-            .map(getChildren)
-            .flatMap(getChildrenArray)
+            .flatMap(getChildren)
             .forEach(removeIgnoredKeyword([
                 "위코드",
                 "wecode",
