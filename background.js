@@ -12,7 +12,7 @@ function getChildren(element) {
 
 function removeIgnoredKeyword(keywords) {
     return function (element) {
-        keywords.map(
+        keywords.forEach(
             (keyword) => {
                 if (new RegExp(keyword, 'i').test(element.innerText)) {
                     element.parentNode.parentNode.parentNode.remove();
